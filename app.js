@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const injestionRouter = require('./data-injestion/api/injestion/injestion-router');
 
 dotenv.config();
 const app = express();
@@ -9,6 +10,8 @@ const app = express();
 app.use(express.json());
 
 
+//routes
+app.use('/api', injestionRouter)
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
