@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: loan-approval-app
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  backend:
+    depends_on:
+      - postgres
+    build:
+      dockerfile: dockerfile
+      context: .
+    environment:
+      DATABASE_URL: 'postgresql://postgres:123@postgres:5432/loan-approval-app?schema=public'
+    ports:
+      - '5002:5002'
+    volumes:
+      - .:/app
+    
+volumes:
+  postgres-data:
+  node_modules:
