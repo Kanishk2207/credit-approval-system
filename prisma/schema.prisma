@@ -18,7 +18,7 @@ age Int
 phone_number BigInt
 monthly_salary Int
 approved_limit Int
-current_debt Int?
+current_debt Float?
 
 Loan Loan[]
 
