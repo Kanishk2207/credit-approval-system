@@ -7,7 +7,7 @@ CREATE TABLE "customers" (
     "phone_number" BIGINT NOT NULL,
     "monthly_salary" INTEGER NOT NULL,
     "approved_limit" INTEGER NOT NULL,
-    "current_debt" INTEGER,
+    "current_debt" DOUBLE PRECISION,
 
     CONSTRAINT "customers_pkey" PRIMARY KEY ("customer_id")
 );
