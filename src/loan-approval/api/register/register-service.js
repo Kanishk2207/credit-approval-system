@@ -13,9 +13,9 @@ const createCustomer = async (reqDto) => {
 
 	const customerIds = customers.map((customer) => customer.customer_id);
 
-	const max = Math.max(...customerIds);
+	const maxId = Math.max(...customerIds);
 
-	const customerId = max + 1;
+	const customerId = maxId + 1;
 
 	const newCustomer = await prisma.customer.create({
 		data: {

@@ -1,6 +1,6 @@
 const {
 	checkEligibilityController,
-} = require('./chekc-eligibility-controller');
+} = require('./check-eligibility-controller');
 
 const checkEligibilityRouter = require('express').Router();
 

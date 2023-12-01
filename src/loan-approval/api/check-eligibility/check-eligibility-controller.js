@@ -1,5 +1,5 @@
 const { checkElegiblityfunction } = require("./check-eligibility-service");
-const { CheckEligibilityReqDto } = require("./chekc-eligibility-dto");
+const { CheckEligibilityReqDto } = require("./check-eligibility-dto");
 
 
 
@@ -14,7 +14,7 @@ const checkEligibilityController = async (req, res) => {
         
         res.status(200).json(checkEliRes);
     } catch (error) {
-        res.status(500)
+        res.status(500).json({ error: error.message})
         throw new Error(`internal server error: ${error.message}`);
     }
 }
