@@ -1,17 +1,19 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const injestionRouter = require('./data-injestion/api/injestion/injestion-router');
+const dataInjestRouter = require('./src/data-injestion/api/injestion/injestion-router');
+const registerRouter = require('./src/loan-approval/api/register/register-router');
+const checkEligibilityRouter = require('./src/loan-approval/api/check-eligibility/chekc-eligibility-router');
 
 dotenv.config();
 const app = express();
 
-
 //middleware
 app.use(express.json());
 
-
 //routes
-app.use('/api', injestionRouter)
+app.use('/api', dataInjestRouter);
+app.use('/api', registerRouter);
+app.use('/api', checkEligibilityRouter);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {

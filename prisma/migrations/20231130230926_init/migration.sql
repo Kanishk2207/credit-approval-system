@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "customers" (
-    "customer_id" SERIAL NOT NULL,
+    "customer_id" INTEGER NOT NULL,
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
     "age" INTEGER NOT NULL,

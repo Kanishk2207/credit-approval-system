@@ -107,7 +107,7 @@ const injestData = async (dataArray) => {
 		}
 	}
     const dataInjested = [...uniqueCustomerData, ...uniqueLoanData]
-    return uniqueLoanData;
+    return dataInjested;
 
 };
 

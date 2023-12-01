@@ -72,11 +72,7 @@ const creditScore = async (customerId) => {
         emiWeight + numOfLoanWeight + currentYearLoanWeight + loanApprovedWeight
       );
     }
-    // console.log(emiWeight);
-    // console.log(numOfLoanWeight);
-    // console.log(currentYearLoanWeight);
-    // console.log(loanApprovedWeight);
-    console.log(creditScoreVal);
+    
     return creditScoreVal;
   } catch (error) {
     throw new Error(`Error calculating credit score: ${error.message}`);
