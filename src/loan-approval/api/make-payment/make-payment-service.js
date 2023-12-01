@@ -11,11 +11,6 @@ const paymentFunction = async (reqDto) => {
 		customer_id = Number(customer_id);
 		loan_id = Number(loan_id);
 
-		const customer = await prisma.customer.findUnique({
-			where: {
-				customer_id: customer_id,
-			},
-		});
 		const now = new Date();
 
 		const loan = await prisma.loan.findUnique({
@@ -23,6 +18,15 @@ const paymentFunction = async (reqDto) => {
 				loan_id: loan_id,
 			},
 		});
+
+        if(!loan) {
+            return { message: 'payment failed, no loan found' };
+        }
+
+        if (loan.customer_id != customer_id) {
+            return { message: 'payment failed, customer and customerId does not match' };
+        }
+
 		if (loan.end_date < now) {
 			return { message: 'payment failed, loan tenure complete' };
 		}
