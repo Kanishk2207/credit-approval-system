@@ -58,7 +58,7 @@ const checkElegiblityfunction = async (checkEleReq) => {
 			};
 		}
 
-		let monthly_installment = loan_amount / tenure;
+		let monthly_installment = calculateMonthlyInstallment(loan_amount, corrected_interest_rate, tenure);
 
 		const checkEliRes = new CheckEligibilityResDto(
 			customer_id,
@@ -75,6 +75,23 @@ const checkElegiblityfunction = async (checkEleReq) => {
 	}
 };
 
+const calculateMonthlyInstallment = (
+	loanAmount,
+	interestRate,
+	tenureMonths,
+) => {
+	const monthlyInterestRate = interestRate / 12 / 100;
+
+    // Calculate monthly installment using the formula for EMI in compound interest
+    const denominator = Math.pow((1 + monthlyInterestRate), tenureMonths) - 1;
+    const emi = loanAmount * monthlyInterestRate * Math.pow((1 + monthlyInterestRate), tenureMonths) / denominator;
+
+    return emi;
+};
+
+
+
 module.exports = {
 	checkElegiblityfunction,
+	calculateMonthlyInstallment
 };

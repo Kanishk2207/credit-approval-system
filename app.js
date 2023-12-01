@@ -5,6 +5,7 @@ const registerRouter = require('./src/loan-approval/api/register/register-router
 const checkEligibilityRouter = require('./src/loan-approval/api/check-eligibility/check-eligibility-router');
 const creatLoanRouter = require('./src/loan-approval/api/create-loan/create-loan-router');
 const viewLoanRouter = require('./src/loan-approval/api/view-loan/view-loan-router');
+const makePaymentRouter = require('./src/loan-approval/api/make-payment/make-payment-router');
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.use('/api', registerRouter);
 app.use('/api', checkEligibilityRouter);
 app.use('/api', creatLoanRouter);
 app.use('/api', viewLoanRouter);
+app.use('/api', makePaymentRouter);
 
 
 const port = process.env.PORT || 8000;
