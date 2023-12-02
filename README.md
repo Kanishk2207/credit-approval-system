@@ -9,19 +9,19 @@
 <h1 align="center">Credit System</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Kanishk2207/credit-system?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Kanishk2207/credit-system?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Kanishk2207/credit-system?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/Kanishk2207/credit-system?color=56BEB8">
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8" /> -->
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Kanishk2207/credit-system?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8" /> -->
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Kanishk2207/credit-system?color=56BEB8" /> -->
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/credit-system?color=56BEB8" /> -->
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/Kanishk2207/credit-system?color=56BEB8" /> -->
 </p>
 
 <!-- Status -->
@@ -46,23 +46,33 @@
 
 ## :dart: About ##
 
-Describe your project
+A backend app of credit-approval system, which renders data from excel files and injest data into database with the help of background workers. 
+It consists of different APIs which provide functionalities like:
+- register
+- check credit score
+- check eligibility
+- creat loan
+- make payment
+- and more...
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: RESTfull APIs;
+:heavy_check_mark: Containerization wwith docer;\
+:heavy_check_mark: Implimentation of background workers;\
+:heavy_check_mark: SQL migrations;
+:heavy_check_mark: Modularization and scalability;
+:heavy_check_mark: Readability;
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
 - [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [Express.js](https://expressjs.com/)
+- [Docker](https://docs.docker.com/)
+- [Prisma](https://www.prisma.io/docs)
+- [Postgres](https://www.postgresql.org/docs/)
 
 ## :white_check_mark: Requirements ##
 
@@ -78,12 +88,13 @@ $ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/credit-system
 $ cd credit-system
 
 # Install dependencies
-$ yarn
+$ npm
 
 # Run the project
-$ yarn start
+$ npm start
 
-# The server will initialize in the <http://localhost:3000>
+# Create environment variables
+# The server will initialize in the <http://localhost:5000>
 ```
 
 ## :memo: License ##
@@ -91,7 +102,7 @@ $ yarn start
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/Kanishk2207" target="_blank">Kanishk</a>
 
 &#xa0;
 
