@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const dataInjestRouter = require('./src/data-injestion/api/injestion/injestion-router');
+const dataInjestRouter = require('./src/data-injestion/api/injestion-router');
 const registerRouter = require('./src/loan-approval/api/register/register-router');
 const checkEligibilityRouter = require('./src/loan-approval/api/check-eligibility/check-eligibility-router');
 const creatLoanRouter = require('./src/loan-approval/api/create-loan/create-loan-router');

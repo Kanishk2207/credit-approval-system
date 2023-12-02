@@ -1,20 +1,20 @@
 const xlsx = require('xlsx');
 const { PrismaClient } = require('@prisma/client');
 
-
 const prisma = new PrismaClient();
 
 const injestData = async (dataArray) => {
-
-    var uniqueCustomerData = [];
-    var uniqueLoanData = [];
-
+	var uniqueCustomerData = [];
+	var uniqueLoanData = [];
 
 	for (const file of dataArray) {
 		try {
 			// customer data injestion
 			if (file.originalname === 'customer_data.xlsx') {
-				const customerData = sheetToJson(file);
+
+				const bufferCustomerData = Buffer.from(file.buffer.data);
+
+				const customerData = sheetToJson(bufferCustomerData);
 
 				// filter duplicate data in customer data
 				const uniqueCustomerIds = new Set();
@@ -55,7 +55,6 @@ const injestData = async (dataArray) => {
 				await prisma.customer.createMany({
 					data: customerData,
 				});
-
 			}
 		} catch (error) {
 			throw error;
@@ -63,7 +62,8 @@ const injestData = async (dataArray) => {
 
 		// loan data injestion
 		if (file.originalname === 'loan_data.xlsx') {
-			const loanData = sheetToJson(file);
+			const bufferLoanData = Buffer.from(file.buffer.data);
+			const loanData = sheetToJson(bufferLoanData);
 
 			// filter duplicate data in loan data
 			const uniqueLoanIds = new Set();
@@ -103,12 +103,11 @@ const injestData = async (dataArray) => {
 			await prisma.loan.createMany({
 				data: uniqueLoanData,
 			});
-
 		}
 	}
-    const dataInjested = [...uniqueCustomerData, ...uniqueLoanData]
-    return dataInjested;
 
+	const dataInjested = [...uniqueCustomerData, ...uniqueLoanData];
+	return dataInjested;
 };
 
 const sheetToJson = (sheetData) => {
@@ -116,11 +115,13 @@ const sheetToJson = (sheetData) => {
 		type: 'buffer',
 		cellDates: true,
 	});
+
 	const sheetName = workbook.SheetNames[0];
+
 	const jsonData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
+
 	return jsonData;
 };
-
 
 module.exports = {
 	injestData,

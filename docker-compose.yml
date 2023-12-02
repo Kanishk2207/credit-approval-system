@@ -1,5 +1,10 @@
 version: '3.8'
 services:
+  redis:
+        image: redis:latest
+        restart: always
+        ports:
+            - '6380:6379'
   postgres:
     image: postgres:latest
     ports:
@@ -14,6 +19,7 @@ services:
   backend:
     depends_on:
       - postgres
+      - redis
     build:
       dockerfile: dockerfile
       context: .
@@ -26,4 +32,5 @@ services:
     
 volumes:
   postgres-data:
+  redis:
   node_modules:
